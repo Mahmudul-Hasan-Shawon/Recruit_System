@@ -26,8 +26,8 @@ public class FullTimeStaffHire extends StaffHire {
             String qualification,
             String appointedBy,
             boolean joined,
-            Double salary,
-            Integer weeklyFractionalHours) {
+            double salary,
+            int weeklyFractionalHours) {
         /*
          * 1. salary - a double
          * 2. Designation Type - a whole number
@@ -59,7 +59,7 @@ public class FullTimeStaffHire extends StaffHire {
 
     public String toString() {
         return String.format(
-                "FullTimeStaffHire [vacancyNumber=%d, designationType=%s, jobType=%s, staffName=%s, joiningDate=%s, qualification=%s, appointedBy=%s, joined=%b, salary=%.2f, weeklyFractionalHours=%d]",
+                "FullTimeStaffHire [\nvacancyNumber=%d, \ndesignationType=%s, \njobType=%s, \nstaffName=%s, \njoiningDate=%s, \nqualification=%s, \nappointedBy=%s, \njoined=%b, \nsalary=%.2f, \nweeklyFractionalHours=%d\n]",
                 this.getVacancyNumber(), this.getDesignationType(), this.getJobType(), this.getStaffName(),
                 this.getJoiningDate(), this.getQualification(), this.getAppointedBy(), this.isJoined(), this.salary,
                 this.weeklyFractionalHours);

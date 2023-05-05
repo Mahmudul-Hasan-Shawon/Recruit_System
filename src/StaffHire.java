@@ -57,6 +57,19 @@ public class StaffHire {
         return this.joined;
     }
 
+    public void terminate() {
+        if (this.isJoined()) {
+            this.setJoined(false);
+            this.setStaffName("");
+            this.setJoiningDate("");
+            this.setQualification("");
+            this.setAppointedBy("");
+            JOptionPane.showMessageDialog(null, "Staff terminated successfully.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Staff has not joined yet.");
+        }
+    }
+
     public String getJobType() {
         return this.jobType;
     }
