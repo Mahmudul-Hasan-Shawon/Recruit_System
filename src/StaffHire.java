@@ -2,7 +2,6 @@ import java.lang.String;
 import java.util.ArrayList;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Write a description of class StaffHire here.
