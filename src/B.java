@@ -1,4 +1,5 @@
-import java.awt.GridLayout;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -68,6 +69,16 @@ class Myframe extends JFrame{
         JTextField textField_17 = new JTextField();
 
         JButton btn_1 = new JButton("Add Fulltime Staff");
+        btn_1.addActionListener((ActionListener) new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String data = textField_1.getText();
+                Frame2 secondFrame = new Frame2(data);
+                secondFrame.setVisible(true);
+            }
+        });
+
+
+
 
         JButton btn_2 = new JButton("Add Partime Staff");
         JButton btn_3 = new JButton("Add Salary");

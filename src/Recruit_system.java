@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 
@@ -27,7 +28,7 @@ public class Recruit_system {
         JLabel vacancyNumLabel = new JLabel("Vacancy:"); // Lb-1
         JLabel designationLabel = new JLabel("Designation:"); // Lb-2
         JLabel jobTypeLabel = new JLabel("Job Type:"); // Lb3
-        JLabel jobDateLabel = new JLabel("Job Date:"); // lb4
+        JLabel joiningDateLabel = new JLabel("Job Date:"); // lb4
         JLabel staffNameLabel = new JLabel("Staff Name:"); // lb5
         JLabel appointedByLabel = new JLabel("Appointed By:"); // lb6
         JLabel qualificationLabel = new JLabel("Qualification:"); // lb7
@@ -56,11 +57,11 @@ public class Recruit_system {
         JLabel shiftsLabel = new JLabel("Shifts:"); // lb16
         JLabel displayNumLabel = new JLabel("Display Number:"); // lb17
 
-        JTextField vacancyNumField = new JTextField();          // txt_field_1
-        JTextField designationField = new JTextField();         // txt_field_2
-        JTextField jobTypeField = new JTextField();             // txt_field_3
-        JTextField jobDateField = new JTextField();             // txt_field_4
-        JTextField staffNameField = new JTextField();           // txt_field_5
+        JTextField vacancyNumField = new JTextField(); // txt_field_1
+        JTextField designationField = new JTextField(); // txt_field_2
+        JTextField jobTypeField = new JTextField(); // txt_field_3
+        JTextField joiningDateField = new JTextField(); // txt_field_4
+        JTextField staffNameField = new JTextField(); // txt_field_5
         JTextField appointedByField = new JTextField(); // txt_field_6
         JTextField qualificationField = new JTextField(); // txt_field_7
         JTextField salaryField = new JTextField(); // txt_field_8
@@ -70,30 +71,61 @@ public class Recruit_system {
         JTextField shiftsField = new JTextField(); // txt_field_16
         JTextField displayNumField = new JTextField(); // txt_field_17
 
+        JCheckBox joinedField = new JCheckBox("Joined");
 
-
+        JCheckBox TerminateField = new JCheckBox("Terminate");
 
         JButton Add_Fulltime_Staff_btn = new JButton("Add Fulltime Staff"); // btn_1
+
         Add_Fulltime_Staff_btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String data = vacancyNumField.getText();
-                System.out.println(data);
+                String VacancyNumber = vacancyNumField.getText();
+                String designation = designationField.getText();
+                String jobType = jobTypeField.getText();
+                String staffName = staffNameField.getText();
+                String joiningDate = joiningDateField.getText();
+                String qualification = qualificationField.getText();
+                String appointedBy = appointedByField.getText();
+                Boolean joined = joinedField.isSelected();
+                String salary = salaryField.getText();
+                String weeklyFractionalHours = weeklyFractionalHoursField.getText();
+
+                if (VacancyNumber.isEmpty() || designation.isEmpty() || jobType.isEmpty() ||
+                        staffName.isEmpty() || joiningDate.isEmpty() || qualification.isEmpty() || appointedBy.isEmpty()
+                        || salary.isEmpty() || weeklyFractionalHours.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "All fields are required");
+                } else {
+                    try {
+                        FullTimeStaffHire staff = new FullTimeStaffHire(
+                                Integer.parseInt(VacancyNumber),
+                                designation,
+                                jobType,
+                                staffName,
+                                joiningDate,
+                                qualification,
+                                appointedBy,
+                                joined,
+                                Double.parseDouble(salary),
+                                Integer.parseInt(weeklyFractionalHours));
+                        staff.addToStaffList();
+
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null,
+                                "an error occurred");
+                    }
+                    // System.out.println(weeklyFractionalHours);
+                }
+
+                // new StaffHire(0, designation, jobType, staffName, joiningDate, qualification,
+                // appointedBy, false, 0, 0);
             }
         });
 
-        
-
-        JButton addParttimeStaffButton = new JButton("Add Partime Staff");  // btn_2
-        JButton addSalaryButton = new JButton("Add Salary");                // btn_3
+        JButton addParttimeStaffButton = new JButton("Add Partime Staff"); // btn_2
+        JButton addSalaryButton = new JButton("Add Salary"); // btn_3
         JButton addWorkingShiftsButton = new JButton("Add Working Shifts"); // btn_4
-        JButton terminateButton = new JButton("Terminate");                 // btn_5
-        JButton displayNumButton = new JButton("Display Number");           // btn_6
-
-
-
-
-
-
+        JButton terminateButton = new JButton("Terminate"); // btn_5
+        JButton displayNumButton = new JButton("Display Number"); // btn_6
 
         // Label Name & Text Field
         panel.add(vacancyNumLabel);
@@ -105,8 +137,8 @@ public class Recruit_system {
         panel.add(jobTypeLabel);
         panel.add(jobTypeField);
 
-        panel.add(jobDateLabel);
-        panel.add(jobDateField);
+        panel.add(joiningDateLabel);
+        panel.add(joiningDateField);
 
         panel.add(staffNameLabel);
         panel.add(staffNameField);
@@ -124,8 +156,7 @@ public class Recruit_system {
         panel.add(label_19);
         panel.add(label_20);
 
-        JCheckBox checkBox_1 = new JCheckBox("Joined");
-        panel.add(checkBox_1);
+        panel.add(joinedField);
         // 21-24
         panel.add(label_21);
         panel.add(label_22);
@@ -170,8 +201,7 @@ public class Recruit_system {
         panel.add(terminateButton);
         frame.add(panel);
 
-        JCheckBox checkBox_2 = new JCheckBox("Terminate");
-        panel.add(checkBox_2);
+        panel.add(TerminateField);
 
         // 30
         panel.add(label_30);

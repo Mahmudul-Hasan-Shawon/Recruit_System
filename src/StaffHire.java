@@ -1,4 +1,6 @@
 import java.lang.String;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -17,6 +19,7 @@ public class StaffHire {
     private String qualification;
     private String appointedBy;
     private boolean joined;
+    private static ArrayList<StaffHire> staffList = new ArrayList<>();
 
     /**
      * Constructor for objects of class StaffHire
@@ -29,16 +32,7 @@ public class StaffHire {
             String qualification,
             String appointedBy,
             boolean joined) {
-        /*
-         * 1. Vacancy Number - a whole number
-         * 2. Designation Type - a string characters
-         * 3. Job Type - a string characters
-         * 4. staffName - a string of characters
-         * 5. joiningDate - a string of characters
-         * 6. qualification - a string of characters
-         * 7. appointedBy - a string of characters
-         * 8. joined - either true or false (boolean)
-         */
+
         this.vacancyNumber = vacancyNumber;
         this.designationType = designationType;
         this.jobType = jobType;
@@ -47,7 +41,7 @@ public class StaffHire {
         this.qualification = qualification;
         this.appointedBy = appointedBy;
         this.joined = joined;
-        System.out.println("'hello from staffhire");
+        System.out.println(this.vacancyNumber);
     }
 
     // Getters
@@ -71,6 +65,10 @@ public class StaffHire {
         return this.joiningDate;
     }
 
+    public static ArrayList<StaffHire> getStaffList() {
+        return staffList;
+    }
+
     public String getQualification() {
         return this.qualification;
     }
@@ -84,6 +82,8 @@ public class StaffHire {
     }
 
     // Setters
+
+
     public void setVacancyNumber(int vacancyNumber) {
         this.vacancyNumber = vacancyNumber;
     }

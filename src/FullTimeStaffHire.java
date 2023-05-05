@@ -1,4 +1,10 @@
 
+import java.lang.String;
+import java.util.ArrayList;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  * Write a description of class FullTimeStaffHire here.
  *
@@ -7,7 +13,7 @@
  */
 public class FullTimeStaffHire extends StaffHire {
     private Double salary;
-    private int weeklyFractionalHours;
+    private Integer weeklyFractionalHours;
 
     /**
      * Constructor for objects of class FullTimeStaffHire
@@ -21,7 +27,7 @@ public class FullTimeStaffHire extends StaffHire {
             String appointedBy,
             boolean joined,
             Double salary,
-            int weeklyFractionalHours) {
+            Integer weeklyFractionalHours) {
         /*
          * 1. salary - a double
          * 2. Designation Type - a whole number
@@ -29,6 +35,7 @@ public class FullTimeStaffHire extends StaffHire {
         super(vacancyNumber, designationType, jobType, staffName, joiningDate, qualification, appointedBy, joined);
         this.salary = salary;
         this.weeklyFractionalHours = weeklyFractionalHours;
+
     }
 
     // Getters
@@ -39,6 +46,10 @@ public class FullTimeStaffHire extends StaffHire {
     public int getWeeklyFractionalHours() {
         return this.weeklyFractionalHours;
     }
+
+    public void addToStaffHireList() {
+        StaffHire.staffList.add(this);
+    }    
 
     // Setters
     public void setSalary(double salary) {
