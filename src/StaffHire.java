@@ -19,7 +19,7 @@ public class StaffHire {
     private String qualification;
     private String appointedBy;
     private boolean joined;
-    private static ArrayList<StaffHire> staffList = new ArrayList<>();
+    public static ArrayList<StaffHire> staffList = new ArrayList<StaffHire>();
 
     /**
      * Constructor for objects of class StaffHire
@@ -53,6 +53,10 @@ public class StaffHire {
         return this.designationType;
     }
 
+    public Boolean isJoined() {
+        return this.joined;
+    }
+
     public String getJobType() {
         return this.jobType;
     }
@@ -82,7 +86,6 @@ public class StaffHire {
     }
 
     // Setters
-
 
     public void setVacancyNumber(int vacancyNumber) {
         this.vacancyNumber = vacancyNumber;

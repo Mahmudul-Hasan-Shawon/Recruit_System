@@ -48,8 +48,22 @@ public class FullTimeStaffHire extends StaffHire {
     }
 
     public void addToStaffHireList() {
-        StaffHire.staffList.add(this);
-    }    
+        staffList.add(this);
+        System.out.println("Added the following object to staffList:");
+        System.out.println(this.toString());
+        System.out.println("Current staffList:");
+        for (StaffHire staffHire : staffList) {
+            System.out.println(staffHire.toString());
+        }
+    }
+
+    public String toString() {
+        return String.format(
+                "FullTimeStaffHire [vacancyNumber=%d, designationType=%s, jobType=%s, staffName=%s, joiningDate=%s, qualification=%s, appointedBy=%s, joined=%b, salary=%.2f, weeklyFractionalHours=%d]",
+                this.getVacancyNumber(), this.getDesignationType(), this.getJobType(), this.getStaffName(),
+                this.getJoiningDate(), this.getQualification(), this.getAppointedBy(), this.isJoined(), this.salary,
+                this.weeklyFractionalHours);
+    }
 
     // Setters
     public void setSalary(double salary) {

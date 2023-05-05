@@ -107,7 +107,7 @@ public class Recruit_system {
                                 joined,
                                 Double.parseDouble(salary),
                                 Integer.parseInt(weeklyFractionalHours));
-                        staff.addToStaffList();
+                        staff.addToStaffHireList();
 
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null,
@@ -115,9 +115,6 @@ public class Recruit_system {
                     }
                     // System.out.println(weeklyFractionalHours);
                 }
-
-                // new StaffHire(0, designation, jobType, staffName, joiningDate, qualification,
-                // appointedBy, false, 0, 0);
             }
         });
 
